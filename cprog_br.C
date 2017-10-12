@@ -147,6 +147,9 @@ STATION_DESC_MOT	sMOT[MAX_RTU];
 TOTAL_PAR			sT;
 int					nTotalRTU;
 BYTE			nMoscadHours;
+
+long    lTick=0;
+short   prValue = 100;
 /*--------------------------------------------------------------------------*/
 /* The list of the function included in this block                          */
 /*--------------------------------------------------------------------------*/
@@ -238,8 +241,21 @@ void rx(void)
    
    unsigned char  nTxBuf[CB_MAX_MDLC_BUF_SIZE];
    
-
-
+    /* Kommunikáció ellenõrzés */
+   lTick++;
+   if (lTick > 250)
+   {
+      if (p_col_DP_A[69] == prValue)
+        {
+          p_col_DP_B[68] = 1;
+        }
+      else
+        {
+        p_col_DP_B[68] = 0;
+        }
+      prValue = p_col_DP_A[69]; 
+      lTick = 0; 
+   }
 
    
    
