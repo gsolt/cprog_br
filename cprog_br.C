@@ -344,11 +344,18 @@ void fnReadPar(void)
 {
 char 				message[300];
 
-nReteszNum = 0;         /* Reteszes TMOK-k száma */
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+/*  Reteszes RTU-k paraméterei 																	*/
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
+nReteszNum = 2;         /* Reteszes TMOK-k száma */
 
-dpPars[0].nSite   = 0;       /* B front end */
-dpPars[0].nDP_ID  = 1251;    /* DP6, 1. */
+dpPars[0].nSite   = 3;       /* TMOK: 71-28, H front end */
+dpPars[0].nDP_ID  = 1263;    /* DP6, 14. */
 
+dpPars[1].nSite   = 3;       /* TMOK: 32-34, H front end */
+dpPars[1].nDP_ID  = 1264;    /* DP6, 14. */
+
+/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
 
 
