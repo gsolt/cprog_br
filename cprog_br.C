@@ -7,7 +7,13 @@
 *                                                                             	*
 * REV    DATE     PROGRAMMER         REVISION HISTORY                         	*
 * V1.1	2015.09.25 Gergely Zsolt	*p_col_RxBuf: unsigned short
-
+              0: 71-28
+              1: 32-24
+              2: 30-43
+              3: 30-55
+              4: 31-48
+              5: 71-39
+              6: G: 90-18
 *****************************************************************************/
 
 #include "CAPPLIC.H"
@@ -347,13 +353,28 @@ char 				message[300];
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 /*  Reteszes RTU-k paraméterei 																	*/
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
-nReteszNum = 2;         /* Reteszes TMOK-k száma */
+nReteszNum = 7;         /* Reteszes TMOK-k száma */
 
-dpPars[0].nSite   = 3;       /* TMOK: 71-28, H front end */
+dpPars[0].nSite   = 3;       /* TMOK: G: 71-28, H front end - tesztelve */
 dpPars[0].nDP_ID  = 1263;    /* DP6, 14. */
 
-dpPars[1].nSite   = 3;       /* TMOK: 32-34, H front end */
+dpPars[1].nSite   = 3;       /* TMOK: C: 32-24, H front end */
 dpPars[1].nDP_ID  = 1264;    /* DP6, 14. */
+
+dpPars[2].nSite   = 3;       /* TMOK: A: 30-43, H front end, Csór 65/1 Csór 65/2 */
+dpPars[2].nDP_ID  = 1268;    /* DP6, 18. */
+
+dpPars[3].nSite   = 3;       /* TMOK: E: 30-55, H front end, Csór 65/1 Csór 65/2 */
+dpPars[3].nDP_ID  = 1269;    /* DP6, 19. */
+
+dpPars[4].nSite   = 3;       /* TMOK: E: 31-48, H front end, Csór 65/1 Csór 65/2 */
+dpPars[4].nDP_ID  = 1270;    /* DP6, 20. */
+
+dpPars[5].nSite   = 3;       /* TMOK: C: 71-39, Magyargencs  */
+dpPars[5].nDP_ID  = 1271;    /* DP6, 20. */
+
+dpPars[6].nSite   = 3;       /* TMOK: G: 90-18, H: Zalameggyes 62  */
+dpPars[6].nDP_ID  = 1286;    /* DP6, 20. */
 
 /*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
 
@@ -453,10 +474,10 @@ unsigned short      nTxBuf[80];
 
 for (nI=0;nI<nReteszNum && nI<80 ;nI++)
 {
-  if(p_col_DP_B[nI] != nDPOld[nI])
+  if(p_col_DP_A[nI] != nDPOld[nI])
   {
      		nTxBuf[0] = 100; /* Ugyanaz, mintha TMOK lenne */				
-   		   	nTxBuf[1] = p_col_DP_B[nI]; /* << 14;     DP értéke  Nem szabad forgatni!*/    	
+   		   	nTxBuf[1] = p_col_DP_A[nI]; /* << 14;     DP értéke  Nem szabad forgatni!*/    	
    		   	nTxBuf[2] = dpPars[nI].nDP_ID; /* DP azonosítója */ 
               	
  		   	  MOSCAD_sprintf(message,"Állásjelzés küldése, index: %d, Value: %d, DP azonosító: %d, site index: %d",nI,p_col_DP_B[nI],dpPars[nI].nDP_ID,dpPars[nI].nSite  );
@@ -473,7 +494,7 @@ for (nI=0;nI<nReteszNum && nI<80 ;nI++)
 
   
   }
-  nDPOld[nI] =  p_col_DP_B[nI];
+  nDPOld[nI] =  p_col_DP_A[nI];
 
 
 }
