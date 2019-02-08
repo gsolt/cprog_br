@@ -371,7 +371,7 @@ dpPars[4].nSite   = 3;       /* TMOK: E: 31-48, H front end, Csór 65/1 Csór 65/2
 dpPars[4].nDP_ID  = 1270;    /* DP6, 20. */
 
 dpPars[5].nSite   = 3;       /* TMOK: C: 71-39, Magyargencs  */
-dpPars[5].nDP_ID  = 1271;    /* DP6, 20. */
+dpPars[5].nDP_ID  = 1272;    /* DP6, 20. */
 
 dpPars[6].nSite   = 3;       /* TMOK: G: 90-18, H: Zalameggyes 62  */
 dpPars[6].nDP_ID  = 1286;    /* DP6, 20. */
