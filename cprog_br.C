@@ -490,7 +490,7 @@ for (nI=0;nI<nReteszNum && nI<80 ;nI++)
    		   	nTxBuf[1] = p_col_DP_A[nI]; /* << 14;     DP értéke  Nem szabad forgatni!*/    	
    		   	nTxBuf[2] = dpPars[nI].nDP_ID; /* DP azonosítója */ 
               	
- 		   	  MOSCAD_sprintf(message,"Állásjelzés küldése, index: %d, Value: %d, DP azonosító: %d, site index: %d",nI,p_col_DP_B[nI],dpPars[nI].nDP_ID,dpPars[nI].nSite  );
+ 		   	  MOSCAD_sprintf(message,"Állásjelzés küldése, index: %d, Value: %d, DP azonosító: %d, site index: %d",nI,p_col_DP_A[nI],dpPars[nI].nDP_ID,dpPars[nI].nSite  );
    			  MOSCAD_error(message ); 
  
    		   	
